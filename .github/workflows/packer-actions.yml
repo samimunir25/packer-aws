@@ -1,9 +1,10 @@
 name: Packer GHA
 on:
   pull_request:
-    branches: [main]
-  paths: 
-    - 'packer-aws/hippo-image.pkr.hcl'
+    branches: 
+      - main
+    paths: 
+      - 'packer-aws/hippo-image.pkr.hcl'
 
 jobs:
   build:
