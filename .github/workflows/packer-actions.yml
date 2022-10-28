@@ -1,6 +1,7 @@
 name: Packer GHA
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: 
       - main
