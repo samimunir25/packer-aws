@@ -22,7 +22,7 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
     - name: Packer Init
-        uses: hashicorp/packer-github-actions@master
+        uses: docker://hashicorp/packer:light
         with:
           command: init
           target: hippo-image.pkr.hcl
