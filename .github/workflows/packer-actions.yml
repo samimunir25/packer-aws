@@ -1,10 +1,19 @@
 name: Packer GHA
+
 on:
   pull_request:
     branches: 
       - main
+      - master
     paths: 
-      - 'packer-aws/hippo-image.pkr.hcl'
+      - 'hippo-image.pkr.hcl'
+
+  push:
+    branches: 
+      - main
+      - master
+    paths: 
+      - 'hippo-image.pkr.hcl'      
 
 jobs:
   build:
@@ -17,4 +26,4 @@ jobs:
         AWS_ACCESS_KEY: ${{ secrets.PACKER_AWS_ACCESS_KEY }}
         AWS_SECRET_KEY: ${{ secrets.PACKER_AWS_ACCESS_KEY }}
       with:
-        args: "build packer-aws/hippo-image.pkr.hcl"
+        args: "build hippo-image.pkr.hcl"
