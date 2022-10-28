@@ -1,0 +1,19 @@
+name: Packer GHA
+on:
+  pull_request:
+    branches: [main]
+  paths: 
+    - 'packer-aws/hippo-image.pkr.hcl'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v2
+    - name: Run PACKER container, build and deploy
+      uses: docker://hashicorp/packer:light
+      env: 
+        AWS_ACCESS_KEY: ${{secrets.PACKER_AWS_ACCESS_KEY}}
+        AWS_SECRET_KEY: ${{secrets.PACKER_AWS_ACCESS_KEY}}
+      with:
+        args: "build /github/workspace/packer-aws/hippo-image.pkr.hcl"
