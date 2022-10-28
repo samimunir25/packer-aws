@@ -16,6 +16,8 @@ source "amazon-ebs" "base-ubuntu-image" {
   ami_name               = "${var.ami_name}-${local.timestamp}"
   instance_type          = var.ami_type
   region                 = var.region
+  access_key             = ${{ secrets.PACKER_AWS_ACCESS_KEY }}
+  secret_key             = ${{ secrets.PACKER_AWS_ACCESS_KEY }}
   skip_region_validation = true
   source_ami_filter {
     filters = {
