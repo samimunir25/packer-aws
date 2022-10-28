@@ -40,4 +40,5 @@ build {
   provisioner "shell" {
     script = "./script.sh"
   }
+
 }
