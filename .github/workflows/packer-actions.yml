@@ -14,7 +14,7 @@ jobs:
     - name: Run PACKER container, build and deploy
       uses: docker://hashicorp/packer:light
       env: 
-        AWS_ACCESS_KEY: ${{secrets.PACKER_AWS_ACCESS_KEY}}
-        AWS_SECRET_KEY: ${{secrets.PACKER_AWS_ACCESS_KEY}}
+        AWS_ACCESS_KEY: ${{ secrets.PACKER_AWS_ACCESS_KEY }}
+        AWS_SECRET_KEY: ${{ secrets.PACKER_AWS_ACCESS_KEY }}
       with:
         args: "build packer-aws/hippo-image.pkr.hcl"
