@@ -16,4 +16,4 @@ jobs:
         AWS_ACCESS_KEY: ${{secrets.PACKER_AWS_ACCESS_KEY}}
         AWS_SECRET_KEY: ${{secrets.PACKER_AWS_ACCESS_KEY}}
       with:
-        args: "build /github/workspace/packer-aws/hippo-image.pkr.hcl"
+        args: "build packer-aws/hippo-image.pkr.hcl"
