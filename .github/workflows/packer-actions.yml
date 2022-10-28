@@ -21,6 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v2
+    - name: Packer Init
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: init
+          target: hippo-image.pkr.hcl
     - name: Run PACKER container, build and deploy
       uses: docker://hashicorp/packer:light
       env: 
